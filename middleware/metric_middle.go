@@ -16,7 +16,7 @@ func MetricMiddleware() gin.HandlerFunc {
 		now := time.Now()
 		method := ctx.Request.Method
 		path := ctx.Request.URL.Path
-		monitor.MetricMonitor.RecvRequestTotal(TypeHTTP, method, path)
+		monitor.MetricMonitor.ServerHandleRequestTotal(TypeHTTP, method, path)
 		// ioutil.ReadAll 读取到的是字节流[]byte，读完body就没有了
 		bodyBytes, err := ioutil.ReadAll(ctx.Request.Body)
 		if err != nil {
@@ -29,8 +29,8 @@ func MetricMiddleware() gin.HandlerFunc {
 		ctx.Request.Body = ioutil.NopCloser(bytes.NewBuffer(bodyBytes))
 		ctx.Next()
 		status := strconv.Itoa(ctx.Writer.Status())
-		monitor.MetricMonitor.RecvServerHandlerSeconds(TypeHTTP, method, path, status, time.Now().Sub(now).Seconds())
-		monitor.MetricMonitor.RecvServerHandlerStatus(TypeHTTP, method, path, status)
+		monitor.MetricMonitor.ServerHandlerRequestSeconds(TypeHTTP, method, path, status, time.Now().Sub(now).Seconds())
+		monitor.MetricMonitor.ServerHandleRequestStatus(TypeHTTP, method, path, status)
 		if ctx.Writer.Status() != http.StatusOK {
 			log.WithFields(log.Fields{
 				"request": string(bodyBytes),
