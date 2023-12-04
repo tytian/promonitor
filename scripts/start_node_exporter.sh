@@ -1,3 +1,3 @@
 #!/bin/bash
-nohub /opt/promonitor &
+nohup /opt/promonitor &
 node_exporter --collector.vmstat --collector.tcpstat --collector.processes
