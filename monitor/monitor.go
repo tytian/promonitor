@@ -13,21 +13,21 @@ var (
 	serverHandleRequestSeconds = prometheus.NewHistogramVec(prometheus.HistogramOpts{
 		Name: "server_handle_request_seconds",
 	}, []string{"type", "method", "path", "status"})
-	//clientHandleRequestTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
-	//	Name: "client_handle_request_total",
-	//}, []string{"type", "name", "op", "peer"})
-	//clientHandleRequestSeconds = prometheus.NewHistogramVec(prometheus.HistogramOpts{
-	//	Name: "client_handle_seconds",
-	//}, []string{"type", "name", "op", "peer"})
-	//clientHandleRequestStatus = prometheus.NewGaugeVec(prometheus.GaugeOpts{
-	//	Name: "client_handle_request_status",
-	//}, []string{"type", "name", "op", "peer", "status"})
+	clientHandleRequestTotal = prometheus.NewCounterVec(prometheus.CounterOpts{
+		Name: "client_handle_request_total",
+	}, []string{"type", "name", "op", "peer"})
+	clientHandleRequestSeconds = prometheus.NewHistogramVec(prometheus.HistogramOpts{
+		Name: "client_handle_seconds",
+	}, []string{"type", "name", "op", "peer"})
+	clientHandleRequestStatus = prometheus.NewGaugeVec(prometheus.GaugeOpts{
+		Name: "client_handle_request_status",
+	}, []string{"type", "name", "op", "peer", "status"})
 )
 
 func init() {
 	prometheus.MustRegister(
 		serverHandleRequestTotal, serverHandleRequestStatus, serverHandleRequestSeconds,
-		//clientHandleRequestTotal, clientHandleRequestStatus, clientHandleRequestSeconds,
+		clientHandleRequestTotal, clientHandleRequestStatus, clientHandleRequestSeconds,
 	)
 }
 
@@ -52,14 +52,14 @@ func (m *metricMonitor) ServerHandlerRequestSeconds(metricType, method, path, st
 	}).Observe(seconds)
 }
 
-//func (m *metricMonitor) ClientHandleRequestTotal(metricType, name, op, peer string) {
-//	clientHandleRequestTotal.WithLabelValues(metricType, name, op, peer).Inc()
-//}
-//
-//func (m *metricMonitor) ClientHandleRequestSeconds(metricType, name, op, peer string, seconds float64) {
-//	clientHandleRequestSeconds.WithLabelValues(metricType, name, op, peer).Observe(seconds)
-//}
-//
-//func (m *metricMonitor) ClientHandleRequestStatus(metricType, name, op, peer string, status string) {
-//	clientHandleRequestStatus.WithLabelValues(metricType, name, op, peer, status).Inc()
-//}
+func (m *metricMonitor) ClientHandleRequestTotal(metricType, name, op, peer string) {
+	clientHandleRequestTotal.WithLabelValues(metricType, name, op, peer).Inc()
+}
+
+func (m *metricMonitor) ClientHandleRequestSeconds(metricType, name, op, peer string, seconds float64) {
+	clientHandleRequestSeconds.WithLabelValues(metricType, name, op, peer).Observe(seconds)
+}
+
+func (m *metricMonitor) ClientHandleRequestStatus(metricType, name, op, peer string, status string) {
+	clientHandleRequestStatus.WithLabelValues(metricType, name, op, peer, status).Inc()
+}

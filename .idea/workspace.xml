@@ -7,8 +7,15 @@
     <list default="true" id="5ef7be3d-cf1b-4380-8184-cebbdbc622ee" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/const.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/const.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitor/model/user_model.go" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/model/user_model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monitor/monitor.go" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/monitor.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/promonitor" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/promonitor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/monitor/db.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/user_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/user_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +67,7 @@
       <recent name="$PROJECT_DIR$/grafanadashbord" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/monitor" />
       <recent name="$PROJECT_DIR$/script" />
       <recent name="$PROJECT_DIR$/server" />
     </key>

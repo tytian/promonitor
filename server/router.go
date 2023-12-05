@@ -22,5 +22,6 @@ func StartMonitor(addr string) {
 	})
 	engine.POST("/userlist", UserList)
 	engine.POST("/getuser", UserGet)
+	engine.POST("/createuser", UserCreate)
 	engine.Run(addr)
 }

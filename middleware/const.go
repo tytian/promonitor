@@ -1,6 +1,8 @@
 package middleware
 
 const (
+	Database = "monitor"
+
 	TypeHTTP = "http"
 
 	TypeRPC = "rpc"
@@ -8,4 +10,6 @@ const (
 	TypeMysql = "mysql"
 
 	TypeRedis = "redis"
+
+	OpCreate = "create"
 )

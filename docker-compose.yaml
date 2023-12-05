@@ -12,6 +12,9 @@ services:
     restart: always
     healthcheck:
       test: "wget --spider http://mynode:8081/health"
+      interval: 10s
+      timeout: 10s
+      retries: 5
     depends_on:
       mydb:
         condition: service_healthy
@@ -36,11 +39,14 @@ services:
     restart: always
     ports:
       - 3306:3306
+    volumes:
+      - "/var/lib/mysql:/var/lib/mysql"
+      - "./sql:/opt"
     environment:
       - "MYSQL_ROOT_PASSWORD=mariadb"
       - "MYSQL_DATABASE=monitor"
     healthcheck:
       test: [ "CMD-SHELL", "mariadb-admin -uroot -pmariadb ping --silent" ]
       interval: 10s
-      timeout: 6s
+      timeout: 10s
       retries: 5

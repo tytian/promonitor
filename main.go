@@ -1,6 +1,7 @@
 package main
 
 import (
+	"promonitor/monitor"
 	"promonitor/server"
 )
 
@@ -9,8 +10,8 @@ func init() {
 }
 
 func main() {
-	server.InitDB()
-	defer server.CloseDB()
+	monitor.InitDB()
+	defer monitor.CloseDB()
 	// run server
 	server.StartMonitor(":8081")
 }
