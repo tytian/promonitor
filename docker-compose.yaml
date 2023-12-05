@@ -8,8 +8,11 @@ services:
       - "8081:8081"
     volumes:
       - "./scripts:/opt"
-      - "./logs:/logs"
+      - "./logs:/var/log/monitor"
     restart: always
+    depends_on:
+      mydb:
+        condition: service_healthy
     entrypoint: sh /opt/start_node_exporter.sh
   prometheus:
     image: prom/prometheus:latest
@@ -34,3 +37,8 @@ services:
     environment:
       - "MYSQL_ROOT_PASSWORD=mariadb"
       - "MYSQL_DATABASE=monitor"
+    healthcheck:
+      test: [ "CMD-SHELL", "mariadb-admin -uroot -pmariadb ping --silent" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
