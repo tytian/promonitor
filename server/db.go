@@ -5,11 +5,13 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	log "github.com/sirupsen/logrus"
+	"time"
 )
 
 var PromDB *gorm.DB
 
 func InitDB() {
+	time.Sleep(5 * time.Second)
 	var sqlDb *sql.DB
 	db, err := gorm.Open("mysql", "root:mariadb@tcp(mydb:3306)/monitor?charset=utf8&parseTime=True&loc=Local")
 	if err != nil {

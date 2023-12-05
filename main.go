@@ -5,10 +5,11 @@ import (
 )
 
 func init() {
-	server.InitDB()
+	server.InitLog("debug")
 }
 
 func main() {
+	server.InitDB()
 	defer server.CloseDB()
 	// run server
 	server.StartMonitor(":8081")
