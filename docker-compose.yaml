@@ -10,6 +10,8 @@ services:
       - "./scripts:/opt"
       - "./logs:/var/log/monitor"
     restart: always
+    healthcheck:
+      test: "wget --spider http://mynode:8081/health"
     depends_on:
       mydb:
         condition: service_healthy
@@ -40,5 +42,5 @@ services:
     healthcheck:
       test: [ "CMD-SHELL", "mariadb-admin -uroot -pmariadb ping --silent" ]
       interval: 10s
-      timeout: 5s
+      timeout: 6s
       retries: 5
