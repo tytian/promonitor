@@ -3,8 +3,6 @@ package model
 import (
 	"github.com/jinzhu/gorm"
 	log "github.com/sirupsen/logrus"
-	"promonitor/middleware"
-	"promonitor/monitor"
 	"time"
 )
 
@@ -21,7 +19,6 @@ func (u *User) TableName() string {
 }
 
 func (u *User) BeforeCreate(tx *gorm.DB) error {
-	monitor.MetricMonitor.ClientHandleRequestTotal(middleware.TypeMysql, u.TableName(), middleware.OpCreate, middleware.Database)
 	log.Debugln("BeforeCreate....")
 	return nil
 }

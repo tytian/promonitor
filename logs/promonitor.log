@@ -1,0 +1,14 @@
+[info] 2023-12-06 03:27:44.052 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |      93.083µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:27:46.135 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |    7.500458ms |   192.168.112.3 | GET | /metrics |
+[info] 2023-12-06 03:27:54.130 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     387.917µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:28:04.204 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |      95.833µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:28:14.265 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     197.875µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:28:16.131 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |    3.897583ms |   192.168.112.3 | GET | /metrics |
+[info] 2023-12-06 03:28:24.333 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     115.167µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:28:34.411 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     576.083µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:28:44.483 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |      245.25µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:28:46.135 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |    5.157125ms |   192.168.112.3 | GET | /metrics |
+[info] 2023-12-06 03:28:54.550 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     154.541µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:29:04.622 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     580.708µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:29:14.693 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |     353.375µs |   192.168.112.5 | GET | /health |
+[info] 2023-12-06 03:29:16.138 /Volumes/workspace/Mydemo/promonitor/vendor/github.com/sirupsen/logrus/logger.go:154 | 200 |       8.862ms |   192.168.112.3 | GET | /metrics |

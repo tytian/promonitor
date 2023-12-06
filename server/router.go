@@ -2,26 +2,26 @@ package server
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/tytian/gin_metric"
 	"net/http"
 	"promonitor/middleware"
 )
 
-func PromProxy(handler http.Handler) gin.HandlerFunc {
-	return func(ctx *gin.Context) {
-		handler.ServeHTTP(ctx.Writer, ctx.Request)
-	}
-}
-
 func StartMonitor(addr string) {
 	engine := gin.Default()
-	engine.Use(middleware.MetricMiddleware())
-	engine.Any("/metrics", PromProxy(promhttp.Handler()))
+
+	engine.Use(middleware.Logger(), gin.Recovery(), middleware.Waf())
+
+	gin_metric.RegisterMetricMonitor(true, engine)
+	gin_metric.RegisterApiStatistics(true, engine)
+
 	engine.GET("/health", func(ctx *gin.Context) {
 		ctx.String(http.StatusOK, "ok")
 	})
-	engine.POST("/userlist", UserList)
+
+	engine.POST("/listuser", UserList)
 	engine.POST("/getuser", UserGet)
 	engine.POST("/createuser", UserCreate)
+
 	engine.Run(addr)
 }
